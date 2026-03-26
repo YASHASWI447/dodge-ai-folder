@@ -1,0 +1,169 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme - SAP Fiori Inspired
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 210 20% 97%;
+    --foreground: 210 11% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 11% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 11% 15%;
+
+    --primary: 210 100% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 14% 89%;
+    --secondary-foreground: 210 11% 15%;
+
+    --muted: 210 14% 89%;
+    --muted-foreground: 210 7% 50%;
+
+    --accent: 210 100% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 14% 89%;
+    --input: 210 14% 89%;
+    --ring: 210 100% 40%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 210 11% 15%;
+    --sidebar-primary: 210 100% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 14% 89%;
+    --sidebar-accent-foreground: 210 11% 15%;
+    --sidebar-border: 210 14% 89%;
+    --sidebar-ring: 210 100% 40%;
+
+    /* Graph node colors */
+    --node-customer: 210 100% 40%;
+    --node-sales-order: 120 70% 45%;
+    --node-sales-order-item: 30 100% 50%;
+    --node-billing-item: 0 84% 60%;
+  }
+
+  .dark {
+    --background: 210 11% 15%;
+    --foreground: 210 20% 97%;
+
+    --card: 210 13% 23%;
+    --card-foreground: 210 20% 97%;
+
+    --popover: 210 13% 23%;
+    --popover-foreground: 210 20% 97%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 11% 15%;
+
+    --secondary: 210 13% 30%;
+    --secondary-foreground: 210 20% 97%;
+
+    --muted: 210 13% 30%;
+    --muted-foreground: 210 8% 60%;
+
+    --accent: 210 100% 50%;
+    --accent-foreground: 210 11% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 13% 30%;
+    --input: 210 13% 30%;
+    --ring: 210 100% 50%;
+
+    --sidebar-background: 210 11% 15%;
+    --sidebar-foreground: 210 20% 97%;
+    --sidebar-primary: 210 100% 50%;
+    --sidebar-primary-foreground: 210 11% 15%;
+    --sidebar-accent: 210 13% 30%;
+    --sidebar-accent-foreground: 210 20% 97%;
+    --sidebar-border: 210 13% 30%;
+    --sidebar-ring: 210 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+@layer components {
+  .dashboard-card {
+    @apply bg-card rounded-lg shadow-sm border border-border p-6 hover:shadow-md transition-shadow;
+  }
+
+  .dashboard-input {
+    @apply bg-background border border-border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent;
+  }
+
+  .dashboard-button {
+    @apply px-4 py-2 rounded-md font-medium transition-colors;
+  }
+
+  .dashboard-button-primary {
+    @apply dashboard-button bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .dashboard-button-secondary {
+    @apply dashboard-button bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+
+  /* Chat bubble styles */
+  .chat-bubble-user {
+    @apply bg-primary text-primary-foreground rounded-lg px-4 py-2 max-w-xs break-words;
+  }
+
+  .chat-bubble-ai {
+    @apply bg-secondary text-secondary-foreground rounded-lg px-4 py-2 max-w-xs break-words;
+  }
+
+  /* Graph container */
+  .graph-container {
+    @apply w-full h-full rounded-lg border border-border bg-card shadow-sm;
+  }
+
+  /* KPI card */
+  .kpi-card {
+    @apply dashboard-card flex flex-col gap-2;
+  }
+
+  .kpi-value {
+    @apply text-3xl font-bold text-foreground;
+  }
+
+  .kpi-label {
+    @apply text-sm text-muted-foreground;
+  }
+}
